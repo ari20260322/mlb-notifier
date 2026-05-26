@@ -23,4 +23,4 @@ jobs:
         env:
           GH_BOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ secrets.ISSUE_NUMBER }}
-        run: node daily.jss
+        run: node daily.js
