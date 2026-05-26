@@ -7,9 +7,6 @@ on:
         description: 'GASから渡される対象のURL'
         required: true
 
-# ==========================================
-# ★修正：コードの読み込み権限（contents: read）を追加
-# ==========================================
 permissions:
   contents: read
   issues: write
@@ -21,10 +18,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # ==========================================
+      # ★修正：Node.jsのバージョンを 18 から 20 に変更
+      # ==========================================
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20' 
 
       - name: Install dependencies
         run: npm install cheerio
