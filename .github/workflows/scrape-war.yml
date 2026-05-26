@@ -7,7 +7,11 @@ on:
         description: 'GASから渡される対象のURL'
         required: true
 
+# ==========================================
+# ★修正：コードの読み込み権限（contents: read）を追加
+# ==========================================
 permissions:
+  contents: read
   issues: write
 
 jobs:
@@ -22,7 +26,6 @@ jobs:
         with:
           node-version: '18'
 
-      # 最強のスクレイピングライブラリをその場でインストール
       - name: Install dependencies
         run: npm install cheerio
 
@@ -30,6 +33,5 @@ jobs:
         env:
           GH_BOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ secrets.ISSUE_NUMBER }}
-          # GASから送られてきたURLを環境変数にセット
           TARGET_URL: ${{ github.event.inputs.target_url }}
         run: node scrape-war.js
