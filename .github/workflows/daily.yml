@@ -1,0 +1,26 @@
+name: Daily Dodgers Schedule
+
+on:
+  workflow_dispatch: # GAS（外部）からの強制着火用
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  run-daily:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run Daily Schedule Tracker
+        env:
+          GH_BOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ secrets.ISSUE_NUMBER }}
+        run: node daily.jss
