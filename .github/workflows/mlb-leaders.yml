@@ -1,0 +1,26 @@
+name: MLB Title Leaders
+
+on:
+  workflow_dispatch: # GASからの着火用
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  fetch-and-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Leaders Fetcher
+        env:
+          GH_BOT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ secrets.ISSUE_NUMBER }}
+        run: node mlb-leaders.js
