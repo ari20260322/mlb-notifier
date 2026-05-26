@@ -130,4 +130,4 @@ async function sendToGitHubIssue(message) {
 main().catch(err => {
   console.error("実行エラー:", err);
   process.exit(1);
-});s
+});
