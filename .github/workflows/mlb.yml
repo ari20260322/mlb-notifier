@@ -1,9 +1,7 @@
 name: MLB Tracker
 
 on:
-  schedule:
-    - cron: '*/5 * * * *' # 5分おきに実行
-  workflow_dispatch: # 手動実行用ボタン
+  workflow_dispatch: # GAS（外部）からの強制着火、または手動ボタン専用
 
 permissions:
   contents: write
