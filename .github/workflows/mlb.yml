@@ -117,6 +117,11 @@ async function main() {
         const pid = player.playerId;
         if (!state.players[pid]) state.players[pid] = { lastRecord1: "", lastRecord2: "", lastRecordP1: "", lastRecordP2: "" };
 
+        // ★修正ポイント：バッター・ピッチャー共通で使う成績データを一番最初に取得する！
+        const boxscore = gameData.liveData.boxscore;
+        const playerKey = 'ID' + player.playerId;
+        const pData = boxscore.teams.away.players[playerKey] || boxscore.teams.home.players[playerKey];
+
         // ==========================================
         // バッターの処理
         // ==========================================
@@ -139,9 +144,6 @@ async function main() {
           let messageText = `⚾ ${player.name} 打席速報 ⚾\n`;
 
           let avg = '-'; let hr = '-'; let rbi = '-';
-          const boxscore = gameData.liveData.boxscore;
-          const playerKey = 'ID' + player.playerId;
-          const pData = boxscore.teams.away.players[playerKey] || boxscore.teams.home.players[playerKey];
           
           if (pData && pData.seasonStats && pData.seasonStats.batting) {
             avg = pData.seasonStats.batting.avg || '.000';
@@ -237,7 +239,7 @@ async function main() {
   }
 }
 
-// GitHub Issueへの通知関数（Discordの代わり）
+// GitHub Issueへの通知関数
 async function sendToGitHubIssue(message) {
   if (!REPO || !ISSUE_NUMBER || !GH_TOKEN) {
     console.error("GitHub設定が足りないため通知をスキップします。");
