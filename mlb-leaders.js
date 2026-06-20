@@ -31,9 +31,18 @@ const LEAGUES = [
 ];
 
 async function main() {
-  let message = `🏆 **MLB 現在のタイトルランキング トップ3** 🏆`;
-  for (const league of LEAGUES) {
-    message += `\n### ${league.name}\n`;
+  let message = `🏆 **MLB 現在のタイトルランキング トップ3** 🏆\n`;
+  
+  for (let i = 0; i < LEAGUES.length; i++) {
+    const league = LEAGUES[i];
+    
+    // 2つ目のリーグ（ナ・リーグ）の直前だけ空行を入れる
+    if (i > 0) {
+      message += `\n`;
+    }
+    
+    // ★ここが修正ポイント：先頭の余計な \n を削った
+    message += `### ${league.name}\n`;
 
     // 打者部門の表作成
     message += `**【打者部門】**\n`;
