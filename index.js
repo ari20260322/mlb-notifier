@@ -142,9 +142,7 @@ async function main() {
        
         if (currentAtBatCount > savedCount) {
           let messageText = `⚾ ${player.name} 打席速報 ⚾\n`;
-
-          let avg = '-'; let hr = '-'; let rbi = '-';
-          
+          let avg = '-'; let hr = '-'; let rbi = '-'
           if (pData && pData.seasonStats && pData.seasonStats.batting) {
             avg = pData.seasonStats.batting.avg || '.000';
             hr = pData.seasonStats.batting.homeRuns || '0';
