@@ -32,7 +32,6 @@ const LEAGUES = [
 
 async function main() {
   let message = `🏆 **MLB 現在のタイトルランキング トップ3** 🏆\n`;
-
   for (const league of LEAGUES) {
     message += `\n### ${league.name}\n`;
 
