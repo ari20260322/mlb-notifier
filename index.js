@@ -148,16 +148,13 @@ async function main() {
             hr = pData.seasonStats.batting.homeRuns || '0';
             rbi = pData.seasonStats.batting.rbi || '0';
           }
-         
           for (let i = savedCount; i < currentAtBatCount; i++) {
             const play = targetPlays[i];
             const inning = `${play.about.inning}回 ${play.about.halfInning === 'top' ? '表' : '裏'}`;
             const eventJa = translate(play.result.event);
-            
             messageText += `\n第${i + 1}打席 (${inning})：${eventJa}\n`;
             messageText += `(打率: ${avg}  本塁打: ${hr}  打点: ${rbi})\n`;
-          }
-         
+          }s
           messageText += `\n【試合経過】\n${awayTeamJa} ${awayScore} - ${homeScore} ${homeTeamJa}\n`;
           await sendToGitHubIssue(messageText);
         }
@@ -212,11 +209,10 @@ async function main() {
         if (currentTotalOuts > savedTotalOuts) {
           let messageTextP = `⚾ ${player.name} 投球速報 ⚾\n`;
           let ipDisplay = currentOuts > 0 ? `${currentInnings} ${currentOuts}/3` : `${currentInnings}`;
-          
           messageTextP += `${ipDisplay}イニング ${numberOfPitches}球 ${strikeOuts}奪三振\n`;
           messageTextP += `${runs}失点 ${hits}被安打 ${walksAndHbp}四死球\n`;
           messageTextP += `\n【試合経過】\n${awayTeamJa} ${awayScore} - ${homeScore} ${homeTeamJa}\n`;
-          
+          s
           await sendToGitHubIssue(messageTextP);
         }
 
