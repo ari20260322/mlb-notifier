@@ -44,7 +44,7 @@ async function main() {
     message += `### ${league.name}\n`;
 
     // 打者部門の表作成
-    message += `**【打者部門】**\n`;
+    message += `【打者部門】\n`;
     message += `| 項目 | 1位 | 2位 | 3位 |\n`;
     message += `| :--- | :--- | :--- | :--- |\n`;
     for (const stat of CATEGORIES.hitting) {
@@ -54,7 +54,7 @@ async function main() {
     }
 
     // 投手部門の表作成
-    message += `\n**【投手部門】**\n`;
+    message += `\n【投手部門】\n`;
     message += `| 項目 | 1位 | 2位 | 3位 |\n`;
     message += `| :--- | :--- | :--- | :--- |\n`;
     for (const stat of CATEGORIES.pitching) {
