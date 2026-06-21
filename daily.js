@@ -85,8 +85,8 @@ async function sendToGitHubIssue(message) {
     return;
   }
 
-  // あなた宛てにメンションを飛ばす
-  const finalMessage = `@${MENTION_USER}\n${message}`;
+  // あなた宛てにメンションを飛ばす（★ここだけ末尾に変更したぞ！）
+  const finalMessage = `${message}\n@${MENTION_USER}`;
   const url = `https://api.github.com/repos/${REPO}/issues/${ISSUE_NUMBER}/comments`;
 
   const MAX_RETRIES = 5;
