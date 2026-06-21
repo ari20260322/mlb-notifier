@@ -61,7 +61,7 @@ async function main() {
   }
 
   // 5. GitHub Issue用のMarkdownテーブルを作成（文字幅計算なんて不要！）
-  let message = "⚾ **ナ・リーグ WAR トップ10** ⚾\n";
+  let message = "⚾ナ・リーグ WAR トップ10⚾\n";
   message += "| 順位 | Name | fWAR | rWAR |\n";
   message += "| :--- | :--- | :--- | :--- |\n"; // 左寄せ指定
   
