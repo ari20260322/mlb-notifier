@@ -31,7 +31,7 @@ const LEAGUES = [
 ];
 
 async function main() {
-  let message = `🏆 **MLB 現在のタイトルランキング トップ3** 🏆\n`;
+  let message = `⚾️MLB 現在のタイトルランキング トップ3⚾️\n`;
   
   for (let i = 0; i < LEAGUES.length; i++) {
     const league = LEAGUES[i];
