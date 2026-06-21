@@ -154,7 +154,7 @@ async function main() {
             const eventJa = translate(play.result.event);
             messageText += `第${i + 1}打席 (${inning})：${eventJa}\n`;
             messageText += `(打率: ${avg}  本塁打: ${hr}  打点: ${rbi})\n`;
-          }s
+          }
           messageText += `\n【試合経過】\n${awayTeamJa} ${awayScore} - ${homeScore} ${homeTeamJa}\n`;
           await sendToGitHubIssue(messageText);
         }
@@ -212,7 +212,7 @@ async function main() {
           messageTextP += `${ipDisplay}イニング ${numberOfPitches}球 ${strikeOuts}奪三振\n`;
           messageTextP += `${runs}失点 ${hits}被安打 ${walksAndHbp}四死球\n`;
           messageTextP += `\n【試合経過】\n${awayTeamJa} ${awayScore} - ${homeScore} ${homeTeamJa}\n`;
-          s
+          
           await sendToGitHubIssue(messageTextP);
         }
 
