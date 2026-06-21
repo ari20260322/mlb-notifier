@@ -104,7 +104,8 @@ async function sendToGitHubIssue(message) {
     return;
   }
 
-  const finalMessage = `@${MENTION_USER}\n${message}`;
+  // ★ここだけ変更！メンションを末尾にしたぞ！
+  const finalMessage = `${message}\n@${MENTION_USER}`;
   const url = `https://api.github.com/repos/${REPO}/issues/${ISSUE_NUMBER}/comments`;
 
   for (let i = 0; i < 5; i++) {
