@@ -153,9 +153,9 @@ async function main() {
             const inning = `${play.about.inning}回 ${play.about.halfInning === 'top' ? '表' : '裏'}`;
             const eventJa = translate(play.result.event);
             messageText += `第${i + 1}打席 (${inning})：${eventJa}\n`;
-            messageText += `(打率: ${avg}  本塁打: ${hr}  打点: ${rbi})\n`;
+            messageText += `打率: ${avg}  本塁打: ${hr}  打点: ${rbi}\n`;
           }
-          messageText += `\n【試合経過】\n${awayTeamJa} ${awayScore} - ${homeScore} ${homeTeamJa}\n`;
+          messageText += `【試合経過】\n${awayTeamJa} ${awayScore} - ${homeScore} ${homeTeamJa}\n`;
           await sendToGitHubIssue(messageText);
         }
        
