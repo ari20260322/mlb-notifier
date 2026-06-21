@@ -26,7 +26,6 @@ const CATEGORIES = {
 
 // リーグの定義（103: ア・リーグ, 104: ナ・リーグ）
 const LEAGUES = [
-  { name: '🔴 ア・リーグ (AL)', id: 103 },
   { name: '🔵 ナ・リーグ (NL)', id: 104 }
 ];
 
