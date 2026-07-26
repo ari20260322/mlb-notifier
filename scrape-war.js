@@ -51,7 +51,8 @@ async function main() {
         rank: $(tds[0]).text().trim(),
         name: $(tds[1]).text().trim(),
         fWar: $(tds[3]).text().trim(),
-        rWar: $(tds[4]).text().trim()
+        rWar: $(tds[4]).text().trim(),
+        avgWar: $(tds[5]).text().trim() // ★平均WARを追加
       });
     }
   });
@@ -62,11 +63,11 @@ async function main() {
 
   // 5. GitHub Issue用のMarkdownテーブルを作成（文字幅計算なんて不要！）
   let message = "⚾ナ・リーグ WAR トップ10⚾\n";
-  message += "| 順位 | Name | fWAR | rWAR |\n";
-  message += "| :--- | :--- | :--- | :--- |\n"; // 左寄せ指定
+  message += "| 順位 | Name | fWAR | rWAR | 平均WAR |\n";
+  message += "| :--- | :--- | :--- | :--- | :--- |\n"; // 左寄せ指定
   
   players.forEach(p => {
-    message += `| ${p.rank} | ${p.name} | ${p.fWar} | ${p.rWar} |\n`;
+    message += `| ${p.rank} | ${p.name} | ${p.fWar} | ${p.rWar} | ${p.avgWar} |\n`;
   });
 
   // 6. GitHub Issueへ送信
